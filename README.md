@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Armory | AI Automation
 
-## Getting Started
+**A premium AI automation platform landing page built for Frontend Battle.**
 
-First, run the development server:
+🚀 **[View Live Demo](https://armory-ai-three.vercel.app)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🏗️ Architecture Highlights
+
+This project was engineered to solve complex state, rendering, and animation challenges natively, completely avoiding bloated external UI libraries.
+
+* **High-Performance Pricing Engine:** A dynamic multi-currency and billing matrix built with **zero hardcoded values**. Using an imperative `forwardRef` + `useImperativeHandle` architecture, pricing calculations and UI updates are isolated exclusively to individual price text nodes—preventing any parent or global React re-renders.
+* **Bento-to-Accordion Context-Lock:** Hovering a feature card on the desktop bento grid and aggressively resizing the window past the mobile breakpoint transfers the exact active interaction state seamlessly to the mobile accordion layout. This is powered by a custom `useSyncExternalStore` hook acting as a single shared source of truth, avoiding duplicated or desynced state.
+* **Zero External Dependencies:** No Framer Motion, Radix, or Headless UI. Every interaction, hover state, and staggered entrance animation was hand-built from scratch utilizing native CSS transitions and the Web Animations API (WAAPI).
+
+## 🛠️ Tech Stack
+
+* **Next.js (App Router)**
+* **TypeScript**
+* **Tailwind CSS**
+* **Native Web Animations API (WAAPI)**
+
+## ✅ Constraints Compliance
+
+This submission was strictly engineered to comply with all grading constraints:
+
+- [x] Dynamic pricing matrix (no hardcoded values)
+- [x] Re-render isolation (verified via DOM mutation pattern)
+- [x] Bento-to-Accordion zero-dependency (no Framer Motion/Radix/Headless UI)
+- [x] Context-Lock on resize-while-hovering
+- [x] Semantic HTML + full SEO metadata
+- [x] Entry animations under 500ms budget via WAAPI
+
+## 📂 Repository Structure
+
+Key directories and architectural logic for judges auditing the codebase:
+
+```text
+app/
+├── globals.css         # Design tokens, variables, and global utilities
+├── layout.tsx          # Root layout, viewport, and SEO metadata
+└── page.tsx            # Main landing page composition
+
+components/
+├── bento/
+│   ├── useActiveNodeStore.ts       # Shared external state (Context-Lock)
+│   ├── BentoAccordionWrapper.tsx   # Live matchMedia breakpoint listener
+│   ├── BentoGrid.tsx               # Desktop layout
+│   ├── AccordionList.tsx           # Mobile layout
+│   └── featuresData.ts             # Static data layer
+│
+├── pricing/
+│   ├── PricingSection.tsx          # Orchestrator & ref-array owner
+│   ├── PriceDisplay.tsx            # Isolated calculation/render node
+│   ├── PricingTierCard.tsx         # Visual card wrapper
+│   └── ...                         # Toggles & Types
+│
+├── AnimatedSection.tsx             # Server-Component safe WAAPI wrapper
+└── useEntranceAnimation.ts         # WAAPI & IntersectionObserver hook
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
