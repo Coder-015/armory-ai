@@ -17,7 +17,7 @@ export default function Home() {
 
       <main className="flex-1">
         <AnimatedSection id="hero" immediate={true} className="max-w-7xl mx-auto px-8 py-20 text-center">
-          <h1 className="font-heading text-5xl md:text-7xl font-extrabold mb-6 text-text-dark animate-enter">Power your future with AI</h1>
+          <h1 className="font-heading text-5xl md:text-7xl font-extrabold mb-6 text-text-primary animate-enter">Power your future with AI</h1>
           <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto animate-enter">Deploy custom enterprise agents and automate complex workflows.</p>
           <button className="bg-brand-primary text-text-primary px-8 py-4 rounded font-bold hover:bg-brand-secondary transition-colors duration-[var(--duration-micro)] ease-[var(--ease-micro)] animate-enter">Build A Workflow</button>
         </AnimatedSection>
