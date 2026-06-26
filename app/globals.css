@@ -40,4 +40,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .accordion-content > div {
   overflow: hidden;
+  min-height: 0;
+}
+
+.accordion-content[data-state="open"] > div {
+  overflow: visible;
 }
