@@ -14,15 +14,16 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Armory | AI Automation",
-  description: "Deploy custom enterprise agents and automate complex workflows with Armory.",
+  description: "Deploy custom enterprise agents and automate complex workflows.",
   openGraph: {
     title: "Armory | AI Automation",
-    description: "Deploy custom enterprise agents and automate complex workflows with Armory.",
-    url: "https://your-submission-url.com",
+    description: "Deploy custom enterprise agents and automate complex workflows.",
+    url: "https://armory-ai-three.vercel.app",
+    siteName: "Armory",
     type: "website",
     images: [
       {
-        url: "https://your-submission-url.com/og-image.jpg",
+        url: "https://armory-ai-three.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Frontend Battle Preview Image",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     ]
   },
   alternates: {
-    canonical: "https://your-submission-url.com",
+    canonical: "https://armory-ai-three.vercel.app",
   },
 };
 
